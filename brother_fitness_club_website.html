@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brother Fitness Club - Best Gym in Madhepura, Bihar</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#08090B',
+                        charcoal: '#121418',
+                        charcoalLight: '#1C2026',
+                        brandRed: '#E63932',
+                        brandRedDark: '#C12720',
+                        brandRedGlow: 'rgba(230, 57, 50, 0.25)',
+                    },
+                    fontFamily: {
+                        oswald: ['Oswald', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom Animations & Styles -->
+    <style>
+        body {
+            background-color: #08090B;
+            color: #F3F4F6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08090B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1C2026;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E63932;
+        }
+
+        /* Glassmorphism effects */
+        .glass-panel {
+            background: rgba(18, 20, 24, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .glass-card {
+            background: rgba(28, 32, 38, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Framer Motion-like Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* Custom Glow & Gradient effects */
+        .text-glow {
+            text-shadow: 0 0 20px rgba(230, 57, 50, 0.5);
+        }
+        .red-gradient-bg {
+            background: linear-gradient(135deg, #E63932 0%, #991B1B 100%);
+        }
+        .red-border-glow:hover {
+            box-shadow: 0 0 25px rgba(230, 57, 50, 0.3);
+            border-color: rgba(230, 57, 50, 0.8);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen pb-16 md:pb-0">
+
+    <!-- HEADER / NAVIGATION -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 py-4 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-lg bg-brandRed flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-brandRed/30 group-hover:scale-105 transition-transform">
+                    <!-- Dumbbell SVG Icon -->
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                        <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 6.29 3.43 2 7.71 3.43 9.14 2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22 14.86 20.57 16.29 22 20.57 17.71 19.14 16.29 20.57 14.86zM6 8.83l-2.83-2.83 1.42-1.41L7.41 7.41 6 8.83zm12 12l-2.83-2.83 1.41-1.42 2.83 2.83-1.41 1.42z"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-heading text-2xl font-bold tracking-wider text-white block leading-none">BROTHER</span>
+                    <span class="text-[10px] tracking-widest text-brandRed uppercase font-bold block">Fitness Club • Madhepura</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#home" class="text-gray-300 hover:text-brandRed transition-colors">Home</a>
+                <a href="#about" class="text-gray-300 hover:text-brandRed transition-colors">About Us</a>
+                <a href="#amenities" class="text-gray-300 hover:text-brandRed transition-colors">Amenities</a>
+                <a href="#gallery" class="text-gray-300 hover:text-brandRed transition-colors">Gallery</a>
+                <a href="#pricing" class="text-gray-300 hover:text-brandRed transition-colors">Membership</a>
+                <a href="#faq" class="text-gray-300 hover:text-brandRed transition-colors">FAQ</a>
+            </nav>
+
+            <!-- CTA Header Button -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#enquiry" class="red-gradient-bg text-white px-5 py-2.5 rounded-lg text-sm font-semibold uppercase tracking-wider hover:opacity-90 transition-all shadow-md shadow-brandRed/20 flex items-center gap-2">
+                    <span>Join Now</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
+
+            <!-- Hamburger Button -->
+            <button id="menuBtn" class="md:hidden text-gray-300 focus:outline-none p-2 rounded-lg hover:bg-white/5" aria-label="Toggle menu">
+                <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE DRAWER MENU -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden opacity-0 transition-all duration-300 md:hidden">
+        <div class="fixed top-0 right-0 w-4/5 max-w-xs h-full bg-charcoal p-6 flex flex-col justify-between shadow-2xl border-l border-white/10 transform translate-x-full transition-transform duration-300" id="drawerContent">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-white/10">
+                    <span class="font-heading text-xl font-bold text-white">Navigation</span>
+                    <button id="closeDrawer" class="text-gray-400 hover:text-white p-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-4 mt-6 text-lg font-medium">
+                    <a href="#home" class="mobile-link text-gray-300 hover:text-brandRed py-2 border-b border-white/5">Home</a>
+                    <a href="#about" class="mobile-link text-gray-300 hover:text-brandRed py-2 border-b border-white/5">About Us</a>
+                    <a href="#amenities" class="mobile-link text-gray-300 hover:text-brandRed py-2 border-b border-white/5">Amenities</a>
+                    <a href="#gallery" class="mobile-link text-gray-300 hover:text-brandRed py-2 border-b border-white/5">Gallery</a>
+                    <a href="#pricing" class="mobile-link text-gray-300 hover:text-brandRed py-2 border-b border-white/5">Membership Plans</a>
+                    <a href="#faq" class="mobile-link text-gray-300 hover:text-brandRed py-2 border-b border-white/5">FAQ</a>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-white/10">
+                <a href="#enquiry" class="mobile-link red-gradient-bg text-white w-full py-3 rounded-lg font-semibold uppercase tracking-wider text-center block shadow-lg shadow-brandRed/30">
+                    Get Free Pass
+                </a>
+                <p class="text-xs text-gray-500 text-center mt-4">College Road, Near Power House, Madhepura</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden">
+        <!-- Background Overlay with Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1600&auto=format&fit=crop" alt="Gym Workout" class="w-full h-full object-cover object-center opacity-25 filter contrast-125 brightness-75">
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-obsidian via-transparent to-obsidian"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left grid md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-7 reveal">
+                <div class="inline-flex items-center gap-2 bg-brandRed/10 border border-brandRed/30 px-3 py-1.5 rounded-full mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brandRed animate-pulse"></span>
+                    <span class="text-xs font-semibold uppercase text-brandRed tracking-widest">#1 Premium Gym in Madhepura</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-white mb-6">
+                    TRANSFORM YOUR <span class="text-brandRed text-glow">BODY</span> & MIND
+                </h1>
+                <p class="text-gray-300 text-base sm:text-lg max-w-2xl mb-8 leading-relaxed font-normal">
+                    Welcome to <strong>Brother Fitness Club</strong> – Madhepura’s premier fitness destination featuring state-of-the-art heavy machinery, certified personal trainers, and a motivational high-energy atmosphere.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#enquiry" class="red-gradient-bg text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-sm hover:scale-105 transition-transform shadow-xl shadow-brandRed/30 flex items-center justify-center gap-3">
+                        <span>Start Free Trial</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="#pricing" class="glass-card hover:bg-white/10 text-white border border-white/10 px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-sm transition-all flex items-center justify-center gap-2">
+                        View Membership Plans
+                    </a>
+                </div>
+
+                <!-- Stats Bar -->
+                <div class="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-white/10 text-center md:text-left">
+                    <div>
+                        <div class="font-heading text-2xl sm:text-3xl font-bold text-white">500+</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Active Members</div>
+                    </div>
+                    <div>
+                        <div class="font-heading text-2xl sm:text-3xl font-bold text-white">15+</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Top Equipment</div>
+                    </div>
+                    <div>
+                        <div class="font-heading text-2xl sm:text-3xl font-bold text-white">100%</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Results Driven</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Feature Card -->
+            <div class="md:col-span-5 reveal reveal-delay-2 hidden md:block">
+                <div class="glass-panel p-6 rounded-2xl relative border border-white/10 red-border-glow transition-all">
+                    <div class="relative h-80 rounded-xl overflow-hidden mb-6">
+                        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=800&auto=format&fit=crop" alt="Gym Equipment" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent"></div>
+                        <span class="absolute bottom-4 left-4 bg-brandRed text-white text-xs font-bold uppercase px-3 py-1 rounded-md">
+                            Madhepura Branch
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Modern Equipment & Certified Coaching</h3>
+                    <p class="text-gray-400 text-sm">Specialized in weight training, cardio conditioning, fat loss programs, and bodybuilding prep.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 bg-charcoal relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative reveal">
+                    <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1000&auto=format&fit=crop" alt="Brother Fitness Club Gym" class="w-full h-auto object-cover">
+                    </div>
+                    <!-- Badge Overlay -->
+                    <div class="absolute -bottom-6 -right-6 z-20 bg-brandRed text-white p-6 rounded-2xl shadow-2xl hidden sm:block">
+                        <p class="font-heading text-3xl font-bold">#1 CHOICE</p>
+                        <p class="text-xs uppercase tracking-wider font-semibold">In Madhepura, Bihar</p>
+                    </div>
+                </div>
+
+                <div class="reveal reveal-delay-1">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-8 h-1 bg-brandRed rounded-full"></span>
+                        <span class="text-brandRed text-xs font-bold uppercase tracking-widest">About Brother Fitness Club</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-white mb-6">
+                        BUILD YOUR LEGACY WITH THE BEST IN TOWN
+                    </h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Located in the heart of Madhepura, <strong>Brother Fitness Club</strong> was founded with a single mission: to bring world-class fitness facilities, energetic community, and expert coaching to Bihar. 
+                    </p>
+                    <p class="text-gray-400 mb-8 leading-relaxed text-sm">
+                        Whether you are aiming to shed weight, gain muscle, or build endurance, our spacious environment, heavy dumbbell racks, cardio machines, and personalized attention will keep you motivated every step of the way.
+                    </p>
+
+                    <!-- Feature Highlights -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 glass-card p-3 rounded-lg">
+                            <div class="p-2 rounded-md bg-brandRed/20 text-brandRed">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="text-sm font-semibold text-gray-200">Heavy Weight Setup</span>
+                        </div>
+                        <div class="flex items-center gap-3 glass-card p-3 rounded-lg">
+                            <div class="p-2 rounded-md bg-brandRed/20 text-brandRed">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="text-sm font-semibold text-gray-200">Certified Trainers</span>
+                        </div>
+                        <div class="flex items-center gap-3 glass-card p-3 rounded-lg">
+                            <div class="p-2 rounded-md bg-brandRed/20 text-brandRed">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="text-sm font-semibold text-gray-200">Personal Diet Plans</span>
+                        </div>
+                        <div class="flex items-center gap-3 glass-card p-3 rounded-lg">
+                            <div class="p-2 rounded-md bg-brandRed/20 text-brandRed">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <span class="text-sm font-semibold text-gray-200">Separate Batches Available</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AMENITIES / SERVICES SECTION -->
+    <section id="amenities" class="py-20 bg-obsidian relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="text-brandRed text-xs font-bold uppercase tracking-widest block mb-2">What We Offer</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white">WORLD-CLASS AMENITIES</h2>
+                <p class="text-gray-400 mt-4 text-sm">Everything you need to reach peak physical fitness under one roof in Madhepura.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-brandRed/50 transition-all hover:-translate-y-2 group reveal">
+                    <div class="w-14 h-14 bg-brandRed/10 rounded-xl flex items-center justify-center text-brandRed mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Strength & Powerlifting</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Comprehensive array of squat racks, bench presses, barbells, bumper plates, and heavy dumbbell sets up to high weights.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-brandRed/50 transition-all hover:-translate-y-2 group reveal reveal-delay-1">
+                    <div class="w-14 h-14 bg-brandRed/10 rounded-xl flex items-center justify-center text-brandRed mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <!-- Heartbeat Icon -->
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Cardio Zone</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">High-end treadmills, spin bikes, elliptical cross-trainers, and rowing setups to burn fat and boost stamina.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-brandRed/50 transition-all hover:-translate-y-2 group reveal reveal-delay-2">
+                    <div class="w-14 h-14 bg-brandRed/10 rounded-xl flex items-center justify-center text-brandRed mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <!-- User / Coach Icon -->
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Personal Training</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Dedicated 1-on-1 guidance by experienced fitness instructors to maximize workout efficiency and avoid injury.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-brandRed/50 transition-all hover:-translate-y-2 group reveal">
+                    <div class="w-14 h-14 bg-brandRed/10 rounded-xl flex items-center justify-center text-brandRed mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <!-- Diet Icon -->
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Diet & Nutrition Guidance</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Customized meal plans based on Indian regional diets to help achieve specific weight loss or muscle gain targets.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-brandRed/50 transition-all hover:-translate-y-2 group reveal reveal-delay-1">
+                    <div class="w-14 h-14 bg-brandRed/10 rounded-xl flex items-center justify-center text-brandRed mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <!-- Music/Sound Icon -->
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12 0c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Music & High-Power AC</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Fully air-conditioned gym floor equipped with heavy bass surround audio to keep your workout adrenaline pumping.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="glass-card p-8 rounded-2xl border border-white/5 hover:border-brandRed/50 transition-all hover:-translate-y-2 group reveal reveal-delay-2">
+                    <div class="w-14 h-14 bg-brandRed/10 rounded-xl flex items-center justify-center text-brandRed mb-6 group-hover:bg-brandRed group-hover:text-white transition-all">
+                        <!-- Lockers Icon -->
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Locker & Changing Rooms</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Hygienic changing areas, clean drinking water filters, and secure storage lockers for members.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION WITH FILTERS & LIGHTBOX -->
+    <section id="gallery" class="py-20 bg-charcoal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+                <span class="text-brandRed text-xs font-bold uppercase tracking-widest block mb-2">Inside The Club</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white">PHOTO GALLERY</h2>
+                <p class="text-gray-400 mt-4 text-sm">Take a look inside Brother Fitness Club Madhepura.</p>
+            </div>
+
+            <!-- Gallery Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10 reveal">
+                <button class="gallery-filter-btn active bg-brandRed text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all" data-filter="all">All</button>
+                <button class="gallery-filter-btn bg-charcoalLight text-gray-400 hover:text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all" data-filter="weights">Weights</button>
+                <button class="gallery-filter-btn bg-charcoalLight text-gray-400 hover:text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all" data-filter="cardio">Cardio</button>
+                <button class="gallery-filter-btn bg-charcoalLight text-gray-400 hover:text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all" data-filter="atmosphere">Atmosphere</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item weights relative rounded-xl overflow-hidden group h-64 cursor-pointer reveal" data-src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1000&auto=format&fit=crop" data-caption="Heavy Weight Section & Dumbbell Rack">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=600&auto=format&fit=crop" alt="Heavy Weights" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <div>
+                            <span class="text-brandRed text-xs font-bold uppercase tracking-wider">Weights</span>
+                            <h4 class="text-white font-bold text-lg">Heavy Dumbbell & Plate Area</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item cardio relative rounded-xl overflow-hidden group h-64 cursor-pointer reveal reveal-delay-1" data-src="https://images.unsplash.com/photo-1576678927484-cc909957088c?q=80&w=1000&auto=format&fit=crop" data-caption="Cardio Station with Treadmills">
+                    <img src="https://images.unsplash.com/photo-1576678927484-cc909957088c?q=80&w=600&auto=format&fit=crop" alt="Cardio Zone" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <div>
+                            <span class="text-brandRed text-xs font-bold uppercase tracking-wider">Cardio</span>
+                            <h4 class="text-white font-bold text-lg">Endurance Treadmill Lineup</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item atmosphere relative rounded-xl overflow-hidden group h-64 cursor-pointer reveal reveal-delay-2" data-src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1000&auto=format&fit=crop" data-caption="Main Gym Floor Atmosphere">
+                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=600&auto=format&fit=crop" alt="Gym Atmosphere" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <div>
+                            <span class="text-brandRed text-xs font-bold uppercase tracking-wider">Atmosphere</span>
+                            <h4 class="text-white font-bold text-lg">Spacious Gym Interior</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item weights relative rounded-xl overflow-hidden group h-64 cursor-pointer reveal" data-src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=1000&auto=format&fit=crop" data-caption="Barbell Powerlifting Station">
+                    <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=600&auto=format&fit=crop" alt="Powerlifting Station" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <div>
+                            <span class="text-brandRed text-xs font-bold uppercase tracking-wider">Weights</span>
+                            <h4 class="text-white font-bold text-lg">Squat & Deadlift Racks</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item cardio relative rounded-xl overflow-hidden group h-64 cursor-pointer reveal reveal-delay-1" data-src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1000&auto=format&fit=crop" data-caption="Personal Fitness Conditioning">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=600&auto=format&fit=crop" alt="Personal Training" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <div>
+                            <span class="text-brandRed text-xs font-bold uppercase tracking-wider">Cardio</span>
+                            <h4 class="text-white font-bold text-lg">Functional Movement Area</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item atmosphere relative rounded-xl overflow-hidden group h-64 cursor-pointer reveal reveal-delay-2" data-src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1000&auto=format&fit=crop" data-caption="Brother Fitness Club Entrance Zone">
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=600&auto=format&fit=crop" alt="Gym Entrance" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <div>
+                            <span class="text-brandRed text-xs font-bold uppercase tracking-wider">Atmosphere</span>
+                            <h4 class="text-white font-bold text-lg">High Energy Gym Floor</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg hidden flex-col justify-center items-center p-4">
+        <button id="closeLightbox" class="absolute top-6 right-6 text-white hover:text-brandRed text-4xl font-bold p-2 focus:outline-none">&times;</button>
+        <div class="max-w-4xl max-h-[80vh] relative">
+            <img id="lightboxImg" src="" alt="Gallery Preview" class="max-w-full max-h-[75vh] rounded-lg shadow-2xl object-contain">
+            <p id="lightboxCaption" class="text-center text-gray-300 font-heading text-xl mt-4"></p>
+        </div>
+    </div>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="py-20 bg-obsidian relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="text-brandRed text-xs font-bold uppercase tracking-widest block mb-2">Flexible Memberships</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white">MEMBERSHIP PLANS</h2>
+                <p class="text-gray-400 mt-4 text-sm">Affordable and flexible membership options tailored for students and serious fitness enthusiasts in Madhepura.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 items-stretch">
+                <!-- Starter Plan -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between border border-white/5 hover:border-white/20 transition-all reveal">
+                    <div>
+                        <span class="text-gray-400 text-xs font-bold uppercase tracking-wider">Monthly Tier</span>
+                        <h3 class="text-2xl font-bold text-white mt-1 mb-4">STARTER PLAN</h3>
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-4xl font-bold text-white">₹800</span>
+                            <span class="text-gray-400 text-sm">/ month</span>
+                        </div>
+                        <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brandRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Full Gym Access
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brandRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Standard Weight Section
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brandRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                General Floor Trainer Support
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brandRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Locker Room Access
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#enquiry" onclick="selectPlan('Starter Plan')" class="w-full py-3 rounded-xl border border-white/20 hover:border-brandRed text-white font-semibold text-center block transition-all hover:bg-brandRed">
+                        Choose Starter
+                    </a>
+                </div>
+
+                <!-- Pro Plan (Popular) -->
+                <div class="glass-panel rounded-2xl p-8 flex flex-col justify-between border-2 border-brandRed relative shadow-2xl shadow-brandRed/20 scale-105 reveal reveal-delay-1">
+                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brandRed text-white text-xs font-bold uppercase px-4 py-1 rounded-full tracking-widest shadow-lg">
+                        MOST POPULAR
+                    </span>
+                    <div>
+                        <span class="text-brandRed text-xs font-bold uppercase tracking-wider">Quarterly Special</span>
+                        <h3 class="text-2xl font-bold text-white mt-1 mb-4">PRO FITNESS</h3>
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-4xl font-bold text-white">₹2,100</span>
+                            <span class="text-gray-400 text-sm">/ 3 months</span>
+                        </div>
+                        <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brandRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Full Weight & Cardio Access
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brandRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Customized Workout Chart
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brandRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Basic Diet Consultation
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brandRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                AC & Music Floor Access
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#enquiry" onclick="selectPlan('Pro Fitness (3 Months)')" class="w-full py-3 rounded-xl red-gradient-bg text-white font-semibold text-center block transition-transform hover:scale-105 shadow-lg shadow-brandRed/30">
+                        Select Pro Plan
+                    </a>
+                </div>
+
+                <!-- Elite Annual Plan -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between border border-white/5 hover:border-white/20 transition-all reveal reveal-delay-2">
+                    <div>
+                        <span class="text-gray-400 text-xs font-bold uppercase tracking-wider">Annual Membership</span>
+                        <h3 class="text-2xl font-bold text-white mt-1 mb-4">ELITE TRANSFORM</h3>
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-4xl font-bold text-white">₹7,500</span>
+                            <span class="text-gray-400 text-sm">/ year</span>
+                        </div>
+                        <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brandRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Unlimited 365 Days Access
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brandRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Personalised Diet & Supplement Guide
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brandRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Priority Trainer Support
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-brandRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                Free Brother Fitness Gym T-Shirt
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#enquiry" onclick="selectPlan('Elite Transform (Annual)')" class="w-full py-3 rounded-xl border border-white/20 hover:border-brandRed text-white font-semibold text-center block transition-all hover:bg-brandRed">
+                        Select Elite Plan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE ENQUIRY FORM SECTION -->
+    <section id="enquiry" class="py-20 bg-charcoal relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden reveal">
+                <!-- Decorative background elements -->
+                <div class="absolute -top-24 -right-24 w-48 h-48 bg-brandRed/20 rounded-full blur-3xl"></div>
+                
+                <div class="text-center mb-10">
+                    <span class="text-brandRed text-xs font-bold uppercase tracking-widest block mb-2">Instant Action</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white">GET YOUR FREE GYM PASS</h2>
+                    <p class="text-gray-400 text-sm mt-2">Fill the 2-step form below to directly connect with our trainer team on WhatsApp or Voice Call.</p>
+                </div>
+
+                <!-- Form Progress Indicator -->
+                <div class="flex items-center justify-center gap-4 mb-8">
+                    <div id="step1Indicator" class="flex items-center gap-2 text-brandRed font-bold text-sm">
+                        <span class="w-8 h-8 rounded-full bg-brandRed text-white flex items-center justify-center text-xs">1</span>
+                        <span>Basic Info</span>
+                    </div>
+                    <div class="w-12 h-0.5 bg-white/20"></div>
+                    <div id="step2Indicator" class="flex items-center gap-2 text-gray-500 font-bold text-sm">
+                        <span class="w-8 h-8 rounded-full bg-charcoalLight text-gray-400 flex items-center justify-center text-xs">2</span>
+                        <span>Fitness Goal</span>
+                    </div>
+                </div>
+
+                <form id="multiStepForm" class="space-y-6" onsubmit="event.preventDefault();">
+                    <!-- STEP 1 -->
+                    <div id="formStep1" class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Your Full Name *</label>
+                            <input type="text" id="memberName" required placeholder="e.g. Rahul Kumar" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandRed transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Phone / WhatsApp Number *</label>
+                            <input type="tel" id="memberPhone" required placeholder="e.g. 9876543210" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandRed transition-colors">
+                        </div>
+                        <button type="button" onclick="goToStep2()" class="w-full red-gradient-bg text-white font-bold py-4 rounded-xl uppercase tracking-wider text-sm flex items-center justify-center gap-2 shadow-lg shadow-brandRed/30 hover:scale-[1.01] transition-transform">
+                            <span>Next: Choose Fitness Goal</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div id="formStep2" class="space-y-6 hidden">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Primary Fitness Goal</label>
+                            <select id="memberGoal" class="w-full bg-obsidian border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brandRed transition-colors">
+                                <option value="Weight Loss / Fat Burn">Weight Loss / Fat Burn</option>
+                                <option value="Muscle Building / Bodybuilding">Muscle Building / Bodybuilding</option>
+                                <option value="General Health & Stamina">General Health & Stamina</option>
+                                <option value="Personal Training Guidance">Personal Training Guidance</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Selected Plan</label>
+                            <input type="text" id="selectedPlanInput" value="General Membership Enquiry" readonly class="w-full bg-obsidian/50 border border-white/10 rounded-xl px-4 py-3 text-gray-400 focus:outline-none cursor-not-allowed">
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                            <button type="button" onclick="goToStep1()" class="sm:w-1/3 border border-white/20 text-gray-300 font-bold py-4 rounded-xl uppercase tracking-wider text-xs hover:bg-white/5 transition-all">
+                                Back
+                            </button>
+                            <!-- Send WhatsApp Action -->
+                            <button type="button" onclick="submitToWhatsApp()" class="sm:w-2/3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30 transition-transform hover:scale-[1.01]">
+                                <!-- WhatsApp Icon -->
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+                                Send Enquiry via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-20 bg-obsidian">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-brandRed text-xs font-bold uppercase tracking-widest block mb-2">Got Questions?</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white">FREQUENTLY ASKED QUESTIONS</h2>
+            </div>
+
+            <div class="space-y-4 reveal">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item glass-card rounded-2xl border border-white/5 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left font-bold text-white flex justify-between items-center focus:outline-none">
+                        <span>What are the gym timings at Brother Fitness Club?</span>
+                        <svg class="faq-icon w-5 h-5 text-brandRed transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-sm text-gray-400 border-t border-white/5 pt-4">
+                        We are open 6 days a week (Monday to Saturday):<br>
+                        <strong>Morning Shift:</strong> 5:00 AM – 10:00 AM<br>
+                        <strong>Evening Shift:</strong> 4:00 PM – 9:00 PM
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item glass-card rounded-2xl border border-white/5 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left font-bold text-white flex justify-between items-center focus:outline-none">
+                        <span>Are there separate timings or batches for women?</span>
+                        <svg class="faq-icon w-5 h-5 text-brandRed transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-sm text-gray-400 border-t border-white/5 pt-4">
+                        Yes! We offer dedicated comfortable timing windows with female trainer support to ensure privacy and comfort for female members.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item glass-card rounded-2xl border border-white/5 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left font-bold text-white flex justify-between items-center focus:outline-none">
+                        <span>Is personal training available?</span>
+                        <svg class="faq-icon w-5 h-5 text-brandRed transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-sm text-gray-400 border-t border-white/5 pt-4">
+                        Absolutely. We have certified personal trainers who create custom workout routines, guide your posture, monitor progressive overload, and manage diet plans tailored for fast results.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item glass-card rounded-2xl border border-white/5 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-5 text-left font-bold text-white flex justify-between items-center focus:outline-none">
+                        <span>Can beginners join Brother Fitness Club?</span>
+                        <svg class="faq-icon w-5 h-5 text-brandRed transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-sm text-gray-400 border-t border-white/5 pt-4">
+                        Yes, most of our new members start as complete beginners. Our staff provides complete orientation on machine handling and foundational exercises.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-charcoal border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <span class="text-brandRed text-xs font-bold uppercase tracking-widest block mb-2">Visit Our Gym</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-white mb-6">LOCATION & DETAILS</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-brandRed/10 text-brandRed rounded-xl mt-1">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Address</h4>
+                                <p class="text-gray-400 text-sm mt-1">College Road, Near Power House, Madhepura, Bihar - 852113</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-brandRed/10 text-brandRed rounded-xl mt-1">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h32a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Direct Phone / Call</h4>
+                                <p class="text-gray-400 text-sm mt-1">+91 98000 00000 / +91 91234 56789</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-brandRed/10 text-brandRed rounded-xl mt-1">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Working Hours</h4>
+                                <p class="text-gray-400 text-sm mt-1">Mon - Sat: 5:00 AM – 10:00 AM | 4:00 PM – 9:00 PM (Sunday Closed)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Map Embed Frame -->
+                <div class="reveal reveal-delay-1 rounded-2xl overflow-hidden shadow-2xl border border-white/10 h-80 bg-charcoalLight flex items-center justify-center relative">
+                    <iframe 
+                        title="Brother Fitness Club Location" 
+                        src="https://maps.google.com/maps?q=Madhepura%20Bihar&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                        class="w-full h-full border-0 filter grayscale invert contrast-125 opacity-80" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                    <div class="absolute bottom-4 left-4 right-4 glass-panel p-3 rounded-xl text-xs text-gray-300 flex justify-between items-center">
+                        <span>📍 College Road, Madhepura</span>
+                        <a href="https://maps.google.com/?q=Madhepura+Bihar" target="_blank" class="text-brandRed font-bold hover:underline">Open in Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-obsidian border-t border-white/10 py-12 text-center text-gray-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="font-heading text-lg font-bold text-white">BROTHER FITNESS CLUB</span>
+                <span class="text-brandRed font-semibold">• MADHEPURA</span>
+            </div>
+            <p>© 2026 Brother Fitness Club. All Rights Reserved. Built for fitness enthusiasts in Bihar.</p>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE ACTION BAR (Fixed at bottom for Mobile) -->
+    <div class="fixed bottom-0 left-0 right-0 z-40 bg-charcoal/95 backdrop-blur-md border-t border-white/10 p-3 md:hidden flex items-center justify-around gap-2">
+        <a href="tel:+919800000000" class="flex-1 bg-charcoalLight text-white py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2 border border-white/10">
+            <svg class="w-4 h-4 text-brandRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h32a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/></svg>
+            <span>Call Now</span>
+        </a>
+        <a href="#enquiry" class="flex-1 red-gradient-bg text-white py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg shadow-brandRed/30">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            <span>Get Pass</span>
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT CODE -->
+    <script>
+        // 1. Mobile Menu Drawer Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerContent = document.getElementById('drawerContent');
+        const closeDrawer = document.getElementById('closeDrawer');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function openMenu() {
+            mobileDrawer.classList.remove('hidden');
+            setTimeout(() => {
+                mobileDrawer.classList.remove('opacity-0');
+                drawerContent.classList.remove('translate-x-full');
+            }, 10);
+        }
+
+        function closeMenu() {
+            drawerContent.classList.add('translate-x-full');
+            mobileDrawer.classList.add('opacity-0');
+            setTimeout(() => {
+                mobileDrawer.classList.add('hidden');
+            }, 300);
+        }
+
+        menuBtn.addEventListener('click', openMenu);
+        closeDrawer.addEventListener('click', closeMenu);
+        mobileDrawer.addEventListener('click', (e) => {
+            if (e.target === mobileDrawer) closeMenu();
+        });
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // 2. Framer-Motion style Scroll & Reveal Observer
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // 3. Lightbox & Gallery Filters
+        const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const closeLightbox = document.getElementById('closeLightbox');
+
+        // Gallery Filter Logic
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-brandRed', 'text-white');
+                    b.classList.add('bg-charcoalLight', 'text-gray-400');
+                });
+                btn.classList.add('active', 'bg-brandRed', 'text-white');
+                btn.classList.remove('bg-charcoalLight', 'text-gray-400');
+
+                const filter = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox Open Logic
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.getAttribute('data-src');
+                const caption = item.getAttribute('data-caption');
+                lightboxImg.src = imgSrc;
+                lightboxCaption.textContent = caption;
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+            });
+        });
+
+        closeLightbox.addEventListener('click', () => {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+            }
+        });
+
+        // 4. FAQ Accordion Logic
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('.faq-icon');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // 5. Multi-Step Form Logic & WhatsApp Submission
+        const formStep1 = document.getElementById('formStep1');
+        const formStep2 = document.getElementById('formStep2');
+        const step1Indicator = document.getElementById('step1Indicator');
+        const step2Indicator = document.getElementById('step2Indicator');
+        const selectedPlanInput = document.getElementById('selectedPlanInput');
+
+        function goToStep2() {
+            const name = document.getElementById('memberName').value.trim();
+            const phone = document.getElementById('memberPhone').value.trim();
+
+            if (!name || !phone) {
+                alert('Please enter your name and phone number to continue.');
+                return;
+            }
+
+            formStep1.classList.add('hidden');
+            formStep2.classList.remove('hidden');
+
+            step1Indicator.classList.remove('text-brandRed');
+            step1Indicator.classList.add('text-gray-500');
+            step1Indicator.querySelector('span:first-child').classList.replace('bg-brandRed', 'bg-charcoalLight');
+
+            step2Indicator.classList.remove('text-gray-500');
+            step2Indicator.classList.add('text-brandRed');
+            step2Indicator.querySelector('span:first-child').classList.replace('bg-charcoalLight', 'bg-brandRed');
+            step2Indicator.querySelector('span:first-child').classList.replace('text-gray-400', 'text-white');
+        }
+
+        function goToStep1() {
+            formStep2.classList.add('hidden');
+            formStep1.classList.remove('hidden');
+
+            step2Indicator.classList.remove('text-brandRed');
+            step2Indicator.classList.add('text-gray-500');
+            step2Indicator.querySelector('span:first-child').classList.replace('bg-brandRed', 'bg-charcoalLight');
+
+            step1Indicator.classList.remove('text-gray-500');
+            step1Indicator.classList.add('text-brandRed');
+            step1Indicator.querySelector('span:first-child').classList.replace('bg-charcoalLight', 'bg-brandRed');
+        }
+
+        function selectPlan(planName) {
+            selectedPlanInput.value = planName;
+        }
+
+        function submitToWhatsApp() {
+            const name = document.getElementById('memberName').value.trim();
+            const phone = document.getElementById('memberPhone').value.trim();
+            const goal = document.getElementById('memberGoal').value;
+            const plan = selectedPlanInput.value;
+
+            const gymPhoneNumber = "919800000000"; // Replace with your actual WhatsApp business number
+            
+            const message = `*Brother Fitness Club Membership Enquiry*%0A%0A` +
+                            `*Name:* ${encodeURIComponent(name)}%0A` +
+                            `*Phone:* ${encodeURIComponent(phone)}%0A` +
+                            `*Goal:* ${encodeURIComponent(goal)}%0A` +
+                            `*Selected Plan:* ${encodeURIComponent(plan)}%0A%0A` +
+                            `I would like to get a free trial pass and visit the gym floor.`;
+
+            window.open(`https://wa.me/${gymPhoneNumber}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
